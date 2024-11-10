@@ -1,0 +1,919 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+
+
+/* General styles */
+.about-section {
+  color: white;
+  background-color: #000; /* Adjust as needed */
+  padding: 2rem;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .about-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.about-description {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 1024px) {
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-description {
+    font-size: 1.125rem;
+  }
+}
+
+.custom-list {
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tab-content {
+  margin-top: 2rem;
+}
+
+/* Achievements Section Styles */
+.achievements-section {
+  padding: 2rem 1rem; /* Adjusted for responsiveness */
+}
+
+.achievements-container {
+  border: 1px solid #33353f;
+  border-radius: 0.5rem;
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 640px) {
+  .achievements-container {
+    flex-direction: row;
+  }
+}
+
+.achievement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+@media (min-width: 640px) {
+  .achievement {
+    margin: 0 1rem;
+  }
+}
+
+.achievement-value {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .achievement-value {
+    font-size: 2.5rem;
+  }
+}
+
+.achievement-metric {
+  color: #adb7be;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+
+
+/* global.css */
+
+.email-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 3rem 0;
+  padding: 6rem 1rem;
+  gap: 1rem;
+  position: relative;
+}
+
+.email-section .background-gradient {
+  background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+  background-color: var(--primary-900);
+  border-radius: 50%;
+  height: 20rem;
+  width: 20rem;
+  position: absolute;
+  top: 75%;
+  left: -1rem;
+  transform: translateX(-50%) translateY(-50%);
+  filter: blur(1rem);
+  z-index: 0;
+}
+
+.email-section .content {
+  z-index: 10;
+}
+
+.email-section .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  margin: 0.5rem 0;
+}
+
+.email-section .description {
+  color: #adb7be;
+  margin-bottom: 1rem;
+  max-width: 28rem;
+}
+
+.email-section .socials {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.email-section .form {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-section .form input,
+.email-section .form textarea {
+  background-color: #18191e;
+  border: 1px solid #33353f;
+  color: #9ca2a9;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  padding: 0.625rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.email-section .form label {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: medium;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.email-section .form button {
+  background-color: var(--primary-500);
+  color: white;
+  font-weight: medium;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.email-section .form button:hover {
+  background-color: var(--primary-600);
+}
+
+.email-section .email-success {
+  color: #48bb78;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+
+/* Reset Styles - Only for Footer */
+footer {
+  border-top: 1px solid #33353F; /* Border from Tailwind */
+  border-left: transparent;
+  border-right: transparent;
+  color: white;
+  position: relative;
+  z-index: 10;
+  background-color: #1a202c; /* Dark background color */
+}
+
+.footer .container {
+  padding: 3rem; /* Equivalent to Tailwind's p-12 */
+  display: flex;
+  justify-content: space-between; /* Matches Tailwind's flex justify-between */
+}
+
+.footer .rights-text {
+  color: #6b7280; /* Equivalent to Tailwind's text-slate-600 */
+  font-size: 1rem; /* Equivalent to Tailwind's text-base */
+}
+
+
+
+/* Hero Section Styles */
+.hero-section {
+  padding-top: 4rem; /* Equivalent to lg:py-16 */
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* For 1 column layout in small screens */
+  gap: 2rem;
+  justify-items: center;
+}
+
+@media (min-width: 640px) {
+  .hero-grid {
+    grid-template-columns: repeat(12, 1fr); /* 12 columns for larger screens */
+  }
+}
+
+.hero-text {
+  grid-column: span 8;
+  text-align: center;
+  justify-self: start;
+}
+
+.hero-heading {
+  font-size: 2.5rem; /* Equivalent to text-4xl */
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 800; /* Equivalent to font-extrabold */
+}
+
+@media (min-width: 640px) {
+  .hero-heading {
+    font-size: 3rem; /* sm:text-5xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-heading {
+    font-size: 5rem; /* lg:text-8xl */
+    line-height: 1.25; /* lg:leading-normal */
+  }
+}
+
+.hero-description {
+  color: #ADB7BE; /* Equivalent to text-[#ADB7BE] */
+  font-size: 1rem; /* Equivalent to text-base */
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .hero-description {
+    font-size: 1.125rem; /* sm:text-lg */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-description {
+    font-size: 1.25rem; /* lg:text-xl */
+  }
+}
+
+.hero-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.hire-me-btn,
+.download-cv-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem; /* px-6 py-3 */
+  border-radius: 9999px; /* rounded-full */
+  background: linear-gradient(to bottom right, #3b82f6, #9333ea); /* from-primary-500 to-secondary-500 */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.hire-me-btn:hover,
+.download-cv-btn:hover {
+  background-color: #e5e7eb; /* hover:bg-slate-200 */
+}
+
+.download-cv-btn {
+  margin-top: 1rem; /* mt-3 */
+  background-color: #121212;
+}
+
+.cv-btn-text {
+  display: block;
+  background-color: #121212;
+  border-radius: 9999px; /* rounded-full */
+  padding: 0.5rem 1.25rem; /* px-5 py-2 */
+}
+
+.hero-image-wrapper {
+  grid-column: span 4;
+  place-self: center;
+  margin-top: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .hero-image-wrapper {
+    margin-top: 0;
+  }
+}
+
+.hero-image-container {
+  width: 250px;
+  height: 250px;
+  background-color: #181818;
+  border-radius: 50%;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .hero-image-container {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.hero-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  border-radius: 50%;
+}
+
+
+/* Hero Section Styles */
+.hero-section {
+  padding-top: 4rem; /* Equivalent to lg:py-16 */
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* For 1 column layout in small screens */
+  gap: 2rem;
+  justify-items: center;
+}
+
+@media (min-width: 640px) {
+  .hero-grid {
+    grid-template-columns: repeat(12, 1fr); /* 12 columns for larger screens */
+  }
+}
+
+.hero-text {
+  grid-column: span 8;
+  text-align: center;
+  justify-self: start;
+}
+
+.hero-heading {
+  font-size: 2.5rem; /* Equivalent to text-4xl */
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 800; /* Equivalent to font-extrabold */
+}
+
+@media (min-width: 640px) {
+  .hero-heading {
+    font-size: 3rem; /* sm:text-5xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-heading {
+    font-size: 5rem; /* lg:text-8xl */
+    line-height: 1.25; /* lg:leading-normal */
+  }
+}
+
+.hero-description {
+  color: #ADB7BE; /* Equivalent to text-[#ADB7BE] */
+  font-size: 1rem; /* Equivalent to text-base */
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .hero-description {
+    font-size: 1.125rem; /* sm:text-lg */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-description {
+    font-size: 1.25rem; /* lg:text-xl */
+  }
+}
+
+.hero-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Reduced padding and radius for the "Hire Me" button */
+.hire-me-btn,
+.download-cv-btn {
+  display: inline-block;
+  padding: 0.5rem 1.5rem; /* Reduced padding for a more compact button */
+  border-radius: 2px; /* Reduced border radius */
+  background: linear-gradient(to bottom right, #3b82f6, #9333ea); /* from-primary-500 to-secondary-500 */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.hire-me-btn:hover,
+.download-cv-btn:hover {
+  background-color: #e5e7eb; /* hover:bg-slate-200 */
+}
+
+.download-cv-btn {
+  margin-top: 1rem; /* mt-3 */
+  background-color: #121212;
+}
+
+.cv-btn-text {
+  display: block;
+  background-color: #121212;
+  border-radius: 6px; /* Reduced border radius */
+  padding: 0.5rem 1.25rem; /* px-5 py-2 */
+}
+
+.hero-image-wrapper {
+  grid-column: span 4;
+  place-self: center;
+  margin-top: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .hero-image-wrapper {
+    margin-top: 0;
+  }
+}
+
+.hero-image-container {
+  width: 250px;
+  height: 250px;
+  background-color: #181818;
+  border-radius: 50%;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .hero-image-container {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.hero-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  border-radius: 50%;
+}
+
+
+/* MenuOverlay Styles */
+.menu-overlay {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem; /* Equivalent to py-4 */
+  padding-bottom: 1rem; /* Equivalent to py-4 */
+  align-items: center; /* Equivalent to items-center */
+}
+
+/* Styles for individual NavLink items can go here */
+.menu-overlay li {
+  margin-bottom: 1rem; /* Optional: Add spacing between list items */
+}
+
+
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #121212;
+  border-bottom: 1px solid #33353f;
+}
+
+.navbar-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0.5rem 1rem; /* Equivalent to px-4 py-2 */
+}
+
+.logo {
+  font-size: 2rem; /* Equivalent to text-2xl */
+  color: white;
+  font-weight: 600; /* Equivalent to font-semibold */
+}
+
+.mobile-menu {
+  display: block;
+}
+
+.menu-toggle-button {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem; /* Equivalent to px-3 py-2 */
+  border: 1px solid #e2e8f0; /* Equivalent to border-slate-200 */
+  color: #e2e8f0; /* Equivalent to text-slate-200 */
+  transition: all 0.3s ease;
+}
+
+.menu-toggle-button:hover {
+  color: white;
+  border-color: white;
+}
+
+.menu-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.menu {
+  display: none;
+}
+
+.menu-list {
+  display: flex;
+  padding: 1rem;
+  margin: 0;
+  list-style: none;
+}
+
+.menu-list li {
+  margin-right: 2rem; /* Equivalent to space-x-8 */
+}
+
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+}
+
+
+
+
+/* NavLink Styles */
+.nav-link {
+  display: block;
+  padding-top: 0.5rem; /* Equivalent to py-2 */
+  padding-left: 0.75rem; /* Equivalent to pl-3 */
+  padding-right: 1rem; /* Equivalent to pr-4 */
+  color: #adb7be; /* Equivalent to text-[#ADB7BE] */
+  font-size: 1.125rem; /* Equivalent to sm:text-xl */
+  border-radius: 0.375rem; /* Equivalent to rounded */
+  text-decoration: none; /* Remove default underline */
+}
+
+.nav-link:hover {
+  color: white; /* Change text color on hover */
+}
+
+
+
+/* Project Card Styles */
+.project-card {
+  position: relative;
+}
+
+.project-image {
+  height: 13rem; /* Equivalent to h-52 */
+  border-radius: 1rem 1rem 0 0; /* Equivalent to rounded-t-xl */
+  position: relative;
+  background-size: cover;
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #181818;
+  background-opacity: 0;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.project-image:hover .overlay {
+  opacity: 0.8; /* Equivalent to group-hover:bg-opacity-80 */
+}
+
+.icon-link {
+  height: 3.5rem; /* Equivalent to h-14 */
+  width: 3.5rem; /* Equivalent to w-14 */
+  margin-right: 0.5rem; /* Equivalent to mr-2 */
+  border: 2px solid #adb7be;
+  border-radius: 50%; /* Equivalent to rounded-full */
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.icon-link:hover {
+  border-color: white; /* Equivalent to hover:border-white */
+}
+
+.icon {
+  height: 2.5rem; /* Equivalent to h-10 */
+  width: 2.5rem; /* Equivalent to w-10 */
+  color: #adb7be; /* Equivalent to text-[#ADB7BE] */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.icon-link:hover .icon {
+  color: white; /* Equivalent to group-hover/link:text-white */
+}
+
+.card-content {
+  background-color: #181818;
+  padding-top: 1.5rem; /* Equivalent to py-6 */
+  padding-left: 1rem; /* Equivalent to px-4 */
+  padding-right: 1rem; /* Equivalent to px-4 */
+  padding-bottom: 1.5rem; /* Equivalent to py-6 */
+  border-radius: 0 0 1rem 1rem; /* Equivalent to rounded-b-xl */
+  margin-top: 1rem; /* Equivalent to mt-3 */
+}
+
+.card-title {
+  color: white;
+  font-size: 1.25rem; /* Equivalent to text-xl */
+  font-weight: 600; /* Equivalent to font-semibold */
+  margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+}
+
+.card-description {
+  color: #adb7be; /* Equivalent to text-[#ADB7BE] */
+}
+
+
+
+
+/* Projects Section Styles */
+.projects-section {
+  padding: 2rem 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.25rem; /* Equivalent to text-4xl */
+  font-weight: bold; /* Equivalent to font-bold */
+  color: white;
+  margin-top: 1rem; /* Equivalent to mt-4 */
+  margin-bottom: 2rem; /* Equivalent to mb-8 */
+}
+
+.tag-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem; /* Equivalent to gap-2 */
+  padding: 1.5rem 0; /* Equivalent to py-6 */
+}
+
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* Equivalent to gap-8 */
+}
+
+@media screen and (max-width: 768px) {
+  .projects-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; /* Equivalent to md:gap-12 */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* ProjectTag Styles */
+.project-tag {
+  border-radius: 9999px; /* Equivalent to rounded-full */
+  border-width: 2px; /* Equivalent to border-2 */
+  padding: 0.75rem 1.5rem; /* Equivalent to px-6 py-3 */
+  font-size: 1.25rem; /* Equivalent to text-xl */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.selected {
+  color: white;
+  border-color: #1d4ed8; /* Equivalent to border-primary-500 */
+}
+
+.unselected {
+  color: #adb7be; /* Equivalent to text-[#ADB7BE] */
+  border-color: #4b5563; /* Equivalent to border-slate-600 */
+}
+
+.project-tag:hover {
+  border-color: white; /* Equivalent to hover:border-white */
+}
+
+
+/* TabButton Styles */
+.tab-text {
+  margin-right: 0.75rem; /* Equivalent to mr-3 */
+  font-weight: 600; /* Equivalent to font-semibold */
+  transition: color 0.3s ease;
+}
+
+.active {
+  color: white;
+}
+
+.inactive {
+  color: #adb7be; /* Equivalent to text-[#ADB7BE] */
+}
+
+.tab-text:hover {
+  color: white; /* Equivalent to hover:text-white */
+}
+
+.tab-indicator {
+  height: 0.25rem; /* Equivalent to h-1 */
+  background-color: #1d4ed8; /* Equivalent to bg-primary-500 */
+  margin-top: 0.5rem; /* Equivalent to mt-2 */
+  margin-right: 0.75rem; /* Equivalent to mr-3 */
+  transition: width 0.3s ease;
+}
+
+
+/* Custom Styles */
+
+.main-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #121212;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 6rem;  /* Adjust for the spacing */
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.mt-24 {
+  margin-top: 6rem; /* Equivalent to mt-24 */
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.bg-dark {
+  background-color: #121212;  /* Apply the background color directly */
+}
+
+.flex {
+  display: flex;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.md\:mb-12 {
+  margin-bottom: 3rem;
+}
+
+.md\:block {
+  display: block;
+}
+
+.md\:w-auto {
+  width: auto;
+}
+
+.md\:grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.md\:gap-12 {
+  gap: 3rem;
+}
